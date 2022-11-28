@@ -1,0 +1,28 @@
+@use '../global' as g;
+//パンくず
+.bread-crumbNavi{
+    width: 100%;
+    background-color: g.$color-blue2;
+    padding: 12px 0;
+}
+.bread_crumb{
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    li{
+        @include g.font-style(16px, g.$color-white, 500, 1, 0);
+        display: flex;
+        align-items: center;
+        &:after{
+            content: ">";
+            @include g.font-style(16px, g.$color-white, 500, 1, 0);
+            margin: 0 10px;
+            transform: translateY(-2px);
+        }
+        &:last-child{
+            &:after{
+                display: none;
+            }
+        }
+    }
+}

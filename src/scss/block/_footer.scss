@@ -1,0 +1,293 @@
+@use '../global' as g;
+//now on air
+.js-scrollVisibble{
+    display: none;
+    &.show{
+        display: flex;
+        flex-direction: column;
+    }
+}
+.nowOnAir{
+    position: fixed;
+    right: 8rem;
+    bottom: 4rem;
+    z-index: 10;
+    align-items: flex-start;
+    @include g.small{
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        align-items: center;
+    }
+    &__label{
+        font-family: g.$josefin;
+        text-transform: uppercase;
+        @include g.font-style(20px, g.$color-white, 700, 1, 0);
+        background-color: g.$color-red;
+        padding: 8px 16px;
+        display: inline-block;
+        span{
+            display: inline-block;
+            width: 24px;
+            aspect-ratio: 1/1;
+            margin-right: 7px;
+            
+            img{
+                height: auto;
+                animation: vibration 2s forwards infinite;
+            }
+        }
+    }
+    &__box{
+        width: 490px;
+        border: solid 4px g.$color-blue2;
+        background-color: g.$color-white;
+        padding: 16px;
+        @include g.small{
+            width: 100%;
+            border-radius: 16px 16px 0 0;
+            border: solid 2px g.$color-blue2;
+            padding: 18px 18px 10px; 
+        }
+    }
+    &__inner{
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        @include g.small{
+            display: block;
+        }
+    }
+    &__thumbnail{
+        width: calc(135/490)*100%;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        img{
+            height: auto;
+        }
+        @include g.small{
+            display: none;
+        }
+    }
+    &__body{
+        max-width: 100%;
+        
+        @include g.small{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    &__time{
+        @include g.font-style(16px, g.$color-white, 700, 1, 0);
+        background-color: g.$color-blue2;
+        padding: 3px 6px;
+        display: inline-block;
+    }
+    &__title{
+        @include g.font-style(20px, g.$color-black, 700, 1.5, 0);
+    }
+    &__text{
+        @include g.font-style(12px, g.$color-black, 700, 1.333, 0);
+        @include g.small{
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+        }
+        p{
+            @include g.small{
+                display: inline-block;
+                padding-left: 100%;
+                white-space: nowrap;
+                animation: scrollHorizon 20s linear infinite;
+            }
+        }
+    }
+}
+
+//フッターSNS
+.footer{
+    &__copyright{
+        @include g.font-style(14px, g.$color-black, 700, 1, 0);
+        font-family: g.$josefin;
+        font-style: italic;
+        display: block;
+        margin-top: 60px;
+        @include g.pc{
+            margin-top: 6rem; 
+        }
+        @include g.tab{
+            margin-top: 4rem;
+        }
+    }
+}
+.footerSns {
+    width: 100%;
+    background-color: #f5f5f5;
+    padding: 0 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__title{
+        @include g.font-style(20px, g.$color-black, 700, 1, 0);
+        font-family: g.$josefin;
+        text-transform: uppercase;
+        font-style: italic;
+        margin-top: -10px;
+        z-index: 1;
+    }
+}
+.footerContents{
+    padding: 60px 0 20px;
+    background-color: #ECF8FE;
+    .front-page &{
+        padding: 60px 0 189px;
+        @include g.tab{
+            padding: 60px 0 220px;
+        }
+    }
+    &__inner{
+        width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        @include g.pc{
+            width: 94%;
+        }
+        @include g.tab{
+            width: 39.6rem;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+        @include g.sp{
+            width: calc(396/428)*100%;
+        }
+    }
+    &__item{
+        width: calc((100% - 48px)/3);
+        @include g.pc{
+            width: calc((100% - 4.8rem)/3)
+        }
+        @include g.tab{
+            width: 100%;
+        }
+    }
+    &__second{
+        @include g.tab{
+            margin-top: 4rem;
+        }
+    }
+    &__third{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include g.tab{
+            margin-top: 4rem;
+        }
+    }
+    &__logo{
+        width: 204px;
+        aspect-ratio:204/116;
+        @include g.pc{
+            width: 20.4rem;
+        }
+        img{
+            height: auto;
+        }
+    }
+    &__navi{
+        width: 100%;
+        display: flex;
+        justify-content:center;
+        @include g.tab{
+            justify-content: flex-start;
+        }
+        .menu{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            @include g.pc{
+                gap: 2rem;
+            }
+            @include g.tab{
+                width: 100%;
+                gap: 0;
+            }
+        }
+        .menu-item{
+            @include g.tab{
+                width: 100%;
+                border-top: solid 1px g.$color-black;
+                &:last-child{
+                    border-bottom: solid 1px g.$color-black;
+                }
+            }
+            &__icon{
+                width: 32px;
+                height: 32px;
+                display: inline-block;
+                margin-right: 10px;
+                @include g.pc{
+                    width: 3.2rem;
+                    height: 3.2rem;
+                    margin-right: 1rem;
+                }
+            }
+        }
+        a{
+            @include g.font-style(18px, g.$color-black, 600, 1, 0);
+            display: inline-block;
+            display: flex;
+            align-items: center;
+            @include g.pc{
+                font-size: 1.8rem;
+            }
+            @include g.tab{
+                padding: 1rem;
+            }
+            &:hover{
+                filter: brightness(120%);
+            }
+        }
+    }
+    .microCopy{
+        @include g.font-style(16px, g.$color-black, 700, 2, 0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include g.pc{
+            font-size: 1.6rem;
+        }
+        &:before,&:after{
+            content: "";
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            background-image: url("../images/wave.svg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            @include g.pc{
+                width: 2.2rem;
+                height: 2.2rem;
+            }
+        }
+        &:before{
+            margin-right: 10px;
+            @include g.pc{
+                margin-right: 1rem;
+            }
+        }
+        &:after{
+            transform: rotateZ(180deg);
+            margin-left: 10px;
+            @include g.pc{
+                margin-left: 1rem;
+            }
+        }
+    }
+}

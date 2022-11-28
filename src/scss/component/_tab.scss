@@ -1,0 +1,69 @@
+@use '../global' as g;
+//タブ
+.tab{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 36px;
+    @include g.tab{
+        gap: 1.6rem;
+    }
+    @include g.sp{
+        // gap: 1.6rem;
+    }
+    &__item{
+        width: 140px;
+        padding: 12px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: g.$color-white;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        @include g.tab{
+            font-size: 14rem;
+        }
+        @include g.sp{
+            width: calc((100% - 3.2rem)/3);
+        }
+        &.tab-active{
+            background-color: g.$color-blue2;
+        }
+        &:hover{
+            background-color: g.$color-blue2;
+            transition: background-color 0.3s ease;
+            .tab__title{
+                color: g.$color-white;
+                transition: color 0.3s ease;
+            }
+            .tab__text{
+                color: g.$color-white;
+                transition: color 0.3s ease;
+            }
+        }
+    }
+    &__title{
+        @include g.font-style(16px, g.$color-blue2, 700, 1, 0);
+        font-family: g.$josefin;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+        @include g.sp{
+            font-size: 1.6rem;
+        }
+        .tab-active &{
+            color: g.$color-white;
+        }
+    }
+    &__text{
+        @include g.font-style(12px, g.$color-black, 700, 1, 0);
+        margin-top: 5px;
+        transition: color 0.3s ease;
+        @include g.sp{
+            font-size: 1.2rem;
+        }
+        .tab-active &{
+            color: g.$color-white;
+        }
+    }
+}

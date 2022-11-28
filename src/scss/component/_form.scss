@@ -1,0 +1,121 @@
+@use '../global' as g;
+
+//リクエストフォーム
+.mw_wp_form{
+    width: calc(996/1200)*100%;
+    background-color: g.$color-white;
+    border: solid 2px g.$color-blue2;
+    margin: 0 auto;
+    padding: 66px 58px 38px;
+    @include g.pc{
+        width: 100%;
+        padding: 6.6rem 5.6rem 3.8rem;
+    }
+    @include g.tab{
+        padding: 6.6rem 1.8rem 3.8rem;
+    }
+    .input{
+        display: flex;
+        flex-direction: column;
+        .requestConfirm {
+            display: flex;
+            justify-content: space-between;
+            gap: 60px;
+            @include g.font-style(16px, g.$color-black, 700, 1.5, 0);
+            padding: 16px 0;
+            border-bottom: solid 1px g.$color-grey;
+            @include g.pc{
+                gap: 6rem;
+            }
+        }
+        &__label{
+            width: calc(226/876)*100%;
+            @include g.font-style(20px, g.$color-black, 700, 1.5, 0);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            white-space: nowrap;
+            @include g.pc{
+                width: 40%;
+            }
+            @include g.tab{
+                width: 50%;
+            }
+            @include g.small{
+                width: 80%;
+            }
+            .requestConfirm &{
+                width: auto;
+            }
+            span{
+                display: inline-block;
+                @include g.font-style(16px, g.$color-white, 700, 1, 0);
+                padding: 4px 12px;
+                background-color: g.$color-pink;
+                border-radius: 100vh;
+                .requestConfirm &{
+                    display: none;
+                }
+            }
+        }
+    }
+    input[type="text"]{
+        width: 100%;
+        padding: 8px 16px;
+        border: solid 1px g.$color-grey;
+        @include g.font-style(16px, g.$color-black, 500, 1.5, 0);
+    }
+    input[type="email"]{
+        width: 100%;
+        padding: 8px 16px;
+        border: solid 1px g.$color-grey;
+        @include g.font-style(16px, g.$color-black, 500, 1.5, 0);
+    }
+    .submit{
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+        @include g.small{
+            flex-direction: column;
+            align-items: center;
+        }
+
+    }
+    input[type="submit"]{
+        @include g.font-style(16px, g.$color-blue2, 500, 1, 0);
+        text-align: center;
+        padding: 16px 44px;
+        border: solid 2px g.$color-blue2;
+        border-radius: 100vh;
+        min-width: 231px;
+        background-color: g.$color-white;
+        transition: all 0.3s ease;
+        &:hover{
+            background-color: g.$color-blue2;
+            color: g.$color-white;
+            transition: all 0.3s ease;
+        }
+    }
+    textarea{
+        width: 100%;
+        padding: 8px 16px;
+        border: solid 1px g.$color-grey;
+        @include g.font-style(16px, g.$color-black, 500, 1.5, 0);
+    }
+    button{
+        &.back{
+            min-width: 231px;
+            padding: 16px 44px;
+            border-radius: 100vh;
+            background-color: g.$color-dark;
+            @include g.font-style(16px, g.$color-white, 500, 1, 0);
+            transition: all 0.3s ease;
+            text-align: center;
+            &:hover{
+                background-color: g.$color-grey;
+                color: g.$color-white;
+                transition: all 0.3s ease;
+            }
+        }
+    }
+}

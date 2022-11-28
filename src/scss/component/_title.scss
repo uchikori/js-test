@@ -1,0 +1,112 @@
+@use '../global' as g; 
+//英字+日本語タイトル
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    span{
+        display: block;
+    }
+    .front-page &{
+        &:before{
+            content: "";
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-image: url('../images/title-icon.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+    &_leftToCenter{
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        @include g.tab{
+            align-items: center;
+        }
+    }
+    &_color_white{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        span{
+            display: block;
+        }
+        &:before{
+            content: "";
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-image: url('../images/title-icon-white.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+    &__en{
+        @include g.font-style(40px, g.$color-blue2, 700, 1, 0);
+        font-family: g.$josefin;
+        font-style: italic;
+        // text-transform: uppercase;
+        &_font_large{
+            @include g.font-style(60px, g.$color-blue2, 700, 1, 0);
+            font-family: g.$josefin;
+            font-style: italic;
+            // text-transform: uppercase;
+            @include g.tab{
+                font-size: 4rem;
+            }
+        }
+        &_color_white{
+            @include g.font-style(40px, g.$color-white, 700, 1, 0);
+            font-family: g.$josefin;
+            font-style: italic;
+            // text-transform: uppercase;
+        }
+    }
+    &__ja{
+        @include g.font-style(20px, g.$color-black, 700, 1, 0);
+        &_color_white{
+            @include g.font-style(20px, g.$color-white, 700, 1, 0);
+        }
+    }
+    &_bg_belt{
+        @include g.font-style(20px, g.$color-white, 500, 1, 0);
+        padding: 5px 15px;
+        background-color: g.$color-blue2;
+        border-radius: 4px;
+        margin: 20px 0 0;
+        display: inline-block;
+    }
+    &__speechBaroon{
+        @include g.font-style(32px, g.$color-white, 700, 1.5, 0);
+        display: inline-block;
+        padding: 12px 57px;
+        background-color: g.$color-blue2;
+        border-radius: 100vh;
+        position: relative;
+        @include g.tab{
+            width: 100%;
+            font-size: 24px;
+            padding: 2rem 0;
+        }
+        @include g.sp{
+            font-size: 2.4rem;
+        }
+        &:after{
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: solid 22px g.$color-blue2;
+            border-left: solid 23px transparent;
+            border-right: solid 23px transparent;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}

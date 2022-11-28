@@ -1,0 +1,437 @@
+@use '../global' as g;
+// ヘッダー
+.header{
+    width: 100%;
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.8);
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    z-index: 1000;
+    @include g.pc{
+        height: 12rem;
+    }
+    @include g.tab{
+        height: 8rem;
+    }
+    &.standby{
+        position: fixed;
+        background-color: rgba(255, 255, 255, 0.8);
+        transform: translateY(-100%);
+    }
+    &.fixed{
+        transform: translateY(0%);
+    }
+    &__inner{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include g.tab{
+            width: 100%;
+            margin: 0;
+        }
+
+    }
+    &__logo{
+        display: block;
+        width: 175px;
+        height: auto;
+        aspect-ratio: 175 / 100;
+        margin-left: 7rem;
+        img{
+            width: 100%;
+            height: auto;
+        }
+        @include g.pc{
+            width: 17.5rem;
+        }
+        @include g.tab{
+            width: 10.6rem;
+            margin-left: 1.6rem;
+        }
+    }
+    &__right{
+       margin-left: auto;
+       margin-right: 6rem;
+       height: 100%;
+
+    }
+    &__line{
+        width: 1px;
+        height: calc(100/120)*100%;
+        background-color: g.$color-grey;
+        margin: 0 2rem;
+        @include g.tab{
+            display: none;
+        }
+    }
+    &__sns{
+        p{
+            @include g.font-style(14px, g.$color-black, 700, 1, 0);
+            @include g.pc{
+                font-size: 1.4rem;
+            }
+            @include g.tab{
+                color: g.$color-white;
+            }
+        }
+    }
+}
+.gloval-navi{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    @include g.tab{
+        width: 100%;
+        background-color: g.$color-blue2;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        opacity: 1;
+        visibility: visible;
+        padding: 8rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 4rem;
+        &.open{
+            transform: translateX(0%);
+            transition: transform 0.3s ease;
+        }
+    }
+    .menu{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 4rem;
+        @include g.tab{
+            width: 91.2vw;
+            padding: 0;
+            margin: 0 auto;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0;
+            height: auto;
+        }
+    }
+    .menu-item{
+        &.sp-active{
+            display: none;
+            @include g.tab{
+                display: block;
+            }
+        }
+        @include g.tab{
+            width: 100%;
+            border-bottom: solid 1px g.$color-white;
+            &:last-child{
+                border-top: solid 1px g.$color-white;
+            }
+        }
+        &__icon{
+            display: none;
+            @include g.tab{
+                width: 3.2rem;
+                height: 3.2rem;
+                display: inline-block;
+                margin-right: 10px;
+            }
+        }
+    }
+    a{
+        @include g.font-style(18px, g.$color-black, 600, 1, 0);
+        display: inline-block;
+        @include g.pc{
+            font-size: 1.8rem;
+        }
+        @include g.tab{
+            color: g.$color-white;
+            line-height: 1;
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+        }
+        &:hover{
+            filter: brightness(120%);
+        }
+        &.current{
+            color: g.$color-blue2;
+            position: relative;
+            &:after{
+                content: "";
+                display: block;
+                width: 100%;
+                height: 2px;
+                background-color: g.$color-blue2;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                @include g.tab{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+.humberger{
+    width: 8rem;
+    height: 8rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    position: relative;
+    cursor: pointer;
+    background-color: g.$color-blue2;
+    display: none;
+    @include g.tab{
+        display: flex;
+    }
+    &.menu-active{
+        position: fixed;
+        top: 0;
+        right: 0;
+    }
+    &__line{
+        width: 34px;
+        height: 4px;
+        background-color: g.$color-white;
+        margin-bottom: 12px;
+        display: block;
+        border-radius: 100vh;
+        @include g.pc{
+            width: 4rem;
+            height: 0.4rem;
+            margin-bottom: 1.2rem;
+        }
+        &:first-child{
+            transition: transform 0.5s ease;
+        }
+        &:nth-child(2){
+            opacity: 1.0;
+            transition: opacity 0.3s ease;
+        }
+        &:last-child{
+            margin-bottom: 0;
+            transition: transform 0.5s ease;
+        }
+        .menu-active &{
+            &:first-child{
+                transition: transform 0.5s ease;
+                transform: translateY(10px) rotate(45deg);
+                @include g.pc{
+                    transform: translateY(1.6rem) rotate(45deg);
+                }
+            }
+            &:nth-child(2){
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            &:last-child{
+                transition: transform 0.5s ease;
+                transform: translateY(-10px) rotate(-45deg);
+                @include g.pc{
+                    transform: translateY(-1.6rem) rotate(-45deg);
+                }
+            }
+        }
+    }
+}
+.mainVisual{
+    position: relative;
+    overflow-x: hidden;
+    &__top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 23.8rem 0 12.8rem;
+        @include g.tab{
+            padding: 14rem 0 6rem;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+    &__bg{
+        width: 100%;
+        height: 70%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    &__frequency{
+        @include g.font-style(48px, g.$color-black, 800, 1, 0);
+        @include g.pc{
+            font-size: 4.8rem;
+        }
+        @include g.sp{
+            font-size: 3.4rem;
+        }
+        span{
+            @include g.font-style(240px, g.$color-black, 600, 1, -0.06em);
+            display: inline-block;
+            background: linear-gradient(to bottom, #FEADA6, #ECB198);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Arial';
+            @include g.pc{
+                font-size: 20rem;
+            }
+            @include g.sp{
+                font-size: 14rem;
+            }
+        }
+    }
+    &__copy{
+        @include g.font-style(48px, g.$color-black, 900, 1.5, 0);
+        display: inline-block;
+        background: linear-gradient(45deg, g.$color-blue, g.$color-blue2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        @include g.pc{
+            font-size: 4.8rem;
+        }
+        @include g.tab{
+            font-size: 6.4rem;
+        }
+        @include g.sp{
+            font-size: 3.2rem;
+        }
+
+    }
+    &__text{
+        @include g.font-style(16px, g.$color-black, 600, 2.5, 0);
+        font-feature-settings: "palt";
+        @include g.pc{
+            font-size: 1.6rem;
+        }
+        @include g.tab{
+            font-size: 2.4rem;
+        }
+        @include g.sp{
+            font-size: 1.6rem;;
+        }
+    }
+    .snow01{
+        width: 81px;
+        height: 76px;
+        position: absolute;
+        top: 13%;
+        right: 50%;
+        margin-right: 111px;
+        opacity: 0;
+        z-index: -1;
+        animation: snowanime01 6s forwards infinite;
+        @include g.tab{
+            top: 10%;
+            margin-right: 0;
+        }
+    }
+    .snow02{
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        top: 19%;
+        left: 50%;
+        margin-left: 488px;
+        opacity: 0;
+        z-index: -1;
+        animation: snowanime02 6s forwards infinite;
+        @include g.tab{
+            top: 17%;
+            margin-left: 18.2rem;
+        }
+    }
+    .snow03{
+        width: 67px;
+        height: 67px;
+        position: absolute;
+        top: 28%;
+        right: 50%;
+        margin-right: 567px;
+        opacity: 0;
+        z-index: -1;
+        animation: snowanime03 6s forwards infinite;
+        @include g.tab{
+            top: 28%;
+            margin-right: 18.2rem;
+        }
+    }
+    .snow04{
+        width: 64px;
+        height: 64px;
+        position: absolute;
+        top: 33%;
+        left: 50%;
+        margin-left: 600px;
+        opacity: 0;
+        z-index: -1;
+        animation: snowanime04 6s forwards infinite;
+        @include g.tab{
+            top: 27%;
+            margin-left: 12.8rem;
+        }
+    }
+    .snow05{
+        width: 98px;
+        height: 97px;
+        position: absolute;
+        top: 50.5%;
+        right: 50%;
+        margin-right: 502px;
+        opacity: 0;
+        z-index: -1;
+        animation: snowanime05 6s forwards infinite;
+        @include g.tab{
+            top: 67%;
+            margin-right: 14rem;
+        }
+    }
+    .snow06{
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 53.5%;
+        left: 50%;
+        margin-left: 544px;
+        opacity: 0;
+        z-index: -1;
+        animation: snowanime06 6s forwards infinite;
+        @include g.tab{
+            top: 64%;
+            margin-left: 14.8rem;
+        }
+    }
+}
+
+
+//ローディングアニメーション
+.splash{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: g.$color-white;
+    text-align: center;
+    &__logo{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 200px;
+    }
+    .loading{
+        animation: fadeOut 1.7s forwards infinite;
+        animation-delay: 0.2s;
+        opacity: 0;
+    }
+    &.hide{
+        display: none;
+    }
+}

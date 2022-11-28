@@ -1,0 +1,199 @@
+@use '../global' as g;
+.js-swiper{
+    margin: 0 auto;
+    overflow: visible;
+}
+.infiniteSlider{
+    width: 100%;
+    position: relative;
+    overflow-x: hidden;
+    padding: 20px 0;
+    &__mainVisual{
+        width: 400px;
+        height: 400px;
+        @include g.pc{
+            width: 40rem;
+            height: 40rem;
+        }
+        @include g.sp{
+            width: 20rem;
+            height: 20rem;
+        }
+        .swiper-wrapper{
+            transition-timing-function: linear;
+        }
+        .swiper-slide{
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            border-radius: 60px;
+            // margin-right: 80px;
+            @include g.pc{
+                border-radius:6rem;
+            }
+            @include g.tab{
+                border-radius:3rem;
+            }
+        }
+    }
+    &__personality{
+        width: 282px;
+        .swiper-wrapper{
+            transition-timing-function: linear;
+        }
+        .swiper-slide{
+            width: 100%;
+            border-radius: 24px;
+            overflow: hidden;
+            background-color: g.$color-white;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            @include g.pc{
+                border-radius: 2.4rem;
+            }
+            picture{
+                width: 100%;
+                aspect-ratio: 282/220;
+                overflow: hidden;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    &__sponsor{
+        width: 282px;
+        .swiper-wrapper{
+            transition-timing-function: linear;
+        }
+        .swiper-slide{
+            aspect-ratio: 282/174;
+            border-radius: 16px;
+            box-shadow: 0 3px 12px rgba(0,0,0, 0.16);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: g.$color-white;
+            picture{
+                width: calc(240/282)*100%;
+                aspect-ratio: 240/126;
+                img{
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+   
+}
+.slider{
+    width: 1250px;
+    position: relative;
+    margin: 0 auto;
+    @include g.pc{
+        @include g.pc{
+            width: 94%;
+        }
+        @include g.tab{
+            width: 100%;
+        }
+    }
+    &__inner{
+        width: 1220px;
+        padding: 20px 10px;
+        overflow-x: hidden;
+        margin: 0 auto;
+        @include g.pc{
+            width: 100%;
+        }
+        @include g.sp{
+            width: 302px;
+        }
+    }
+    &__container{
+        width: 100%;
+    }
+    &__logo{
+        aspect-ratio: 282/174;
+        border-radius: 16px;
+        box-shadow: 0 3px 12px rgba(0,0,0, 0.16);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        picture{
+            width: calc(240/282)*100%;
+            aspect-ratio: 240/126;
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+    &__title{
+        @include g.font-style(16px, g.$color-black, 700, 1.5, 0);
+    }
+    .swiper-button-next, .swiper-button-prev{
+        width: 50px;
+        height: 50px;
+        transform: translateY(-65%);
+        cursor: pointer;
+        @include g.pc{
+            width: 5rem;
+            height: 5rem;
+        }
+    }
+    .swiper-button-next{
+        right: 0;
+
+    }
+    .swiper-button-prev{
+        left: 0;
+
+    }
+    .swiper-button-next:after{
+        content: "" !important;
+        background-image: url("../images/swiper-button-next.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-button-prev:after{
+        content: "" !important;
+        background-image: url("../images/swiper-button-prev.svg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.js-wideSlider{
+    width: 100%;
+    overflow: hidden;
+}
+
+.js-thumbSlider{
+    .swiper-slide{
+        cursor: pointer;
+        aspect-ratio: 1/1;
+        opacity: 0.6;
+        &-thumb-active{
+            opacity: 1;
+        }
+        picture{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            img{
+                object-fit: cover;
+            }
+        }
+    }
+}

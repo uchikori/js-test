@@ -1,0 +1,31 @@
+@use '../global' as g;
+//会社概要テーブル（汎用）
+.tableNormal{
+    width: 100%;
+    tr{
+        border-top: solid 1px g.$color-grey;
+        &:last-child{
+            border-bottom: solid 1px g.$color-grey;
+        }
+    }
+    th{
+        @include g.font-style(18px, g.$color-blue2, 500, 1.5, 0);
+        padding: 20px 0;
+        width: 30%;
+        @include g.tab{
+            width: 100%;
+            display: block;
+            text-align: center;
+            background-color: #ECF8FE;
+        }
+    }
+    td{
+        @include g.font-style(18px, g.$color-black, 500, 1.5, 0);
+        padding: 20px 0;
+        @include g.tab{
+            width: 100%;
+            display: block;
+            text-align: center;
+        }
+    }
+}
