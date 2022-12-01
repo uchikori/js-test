@@ -1387,6 +1387,7 @@ input[type=text] {
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0;
+  border-radius: 6px;
 }
 
 input[type=email] {
@@ -1473,12 +1474,15 @@ button.back:hover {
 
 .list__item {
   width: 100%;
-  padding: 10px 20px;
-  border: solid 1px #cccccc;
-  border-radius: 6px;
+  padding: 10px 0;
 }
 
 .list__item p {
+  padding: 16px 32px;
+  padding: 1rem 2rem;
+  border: solid 1px #cccccc;
+  border-radius: 6px;
+  width: 100%;
   font-size: 16px;
   color: #333333;
   font-weight: 700;
@@ -1647,12 +1651,12 @@ button.back:hover {
 }
 
 .box {
-  width: 100%;
   background-color: #ffffff;
   border-radius: 10px;
   -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, .16);
           box-shadow: 0 3px 12px rgba(0, 0, 0, .16);
-  padding: 20px;
+  padding: 32px;
+  padding: 2rem;
 }
 
 .js-swiper {

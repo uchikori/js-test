@@ -1,8 +1,7 @@
 @use '../global' as g;
 .box{
-    width: 100%;
     background-color: g.$color-white;
     border-radius: 10px;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
-    padding: 20px;
+    padding: 2rem;
 }

@@ -13,19 +13,19 @@
     </header>
     <main class="main">
         <section class="box main__regist container  mt-120">
-            <div class="title__second">タスクの登録</div>
+            <h2 class="title__second">タスクの登録</h2>
             <div class="box__inner flex column align-end mt-10">
-                <input type="text" placeholder="タスクを入力してください">
-                <button class="btn_grad_orange mt-20">追加</button>
+                <input id="taskInput" type="text" placeholder="タスクを入力してください">
+                <button id="taskAdd" class="btn_grad_orange mt-10">追加</button>
             </div>
         </section>
         <section class="box main__list container mt-40">
-            <div class="title__second">タスク一覧</div>
+            <h2 class="title__second">タスク一覧</h2>
             <div class="box__inner mt-10">
-                <ul class="list">
-                    <li class="list__item flex justify-spaceBetween">
+                <ul id="taskList" class="list">
+                    <li class="list__item flex column align-end">
                         <p>TODOタスク</p>
-                        <div class="list__control flex">
+                        <div class="list__control flex mt-10">
                             <button class="btn_grad_orange">完了</button>
                             <button class="btn_color_grey">削除</button>
                         </div>
@@ -34,14 +34,12 @@
             </div>
         </section>
         <section class="box main__complete container mt-40">
-            <div class="title__second">完了したタスク</div>
+            <h2 class="title__second">完了したタスク</h2>
             <div class="box__inner mt-10">
-                <ul class="list">
-                    <li class="list__item flex justify-spaceBetween">
+                <ul id="completeList" class="list">
+                    <li class="list__item flex column align-end">
                         <p>TODOタスク</p>
-                        <div class="list__control flex">
-                            <button class="btn_color_grey">元に戻す</button>
-                        </div>
+                        <button class="btn_color_grey mt-10">元に戻す</button>
                     </li>
                 </ul>
             </div>
