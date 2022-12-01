@@ -2,6 +2,9 @@
 //フレックスボックス
 .flex{
     display: flex;
+    &.column{
+        flex-direction: column;
+    }
     &.justify-start{
         justify-content: flex-start;
     }
@@ -19,17 +22,5 @@
     }
     &.align-end{
         align-items:flex-end;
-    }
-    &__left{
-        width: calc(282/1200)*100%;
-        @include g.tab{
-            width: 100%;
-        }
-    }
-    &__right{
-        width: calc(894/1200)*100%;
-        @include g.tab{
-            width: 100%;
-        }
     }
 }

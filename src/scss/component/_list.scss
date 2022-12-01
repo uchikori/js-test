@@ -1,52 +1,16 @@
 @use '../global' as g;
-.richList{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px 24px;
-    @include g.pc{
-        gap: 2rem 2.4rem;
-    }
-    @include g.tab{
-        flex-direction: column;
-        gap: 20px;
-    }
-    .footer &{
-        flex-direction: column;
-        gap: 0;
-    }
-    &__item_underLine{
-        width: calc((100% - 24px)/2);
-        @include g.tab{
-            width: 100%;
-        }
-        &:after{
-            content: "";
-            display: block;
-            width: 100%;
-            height: 1px;
-            background-color: g.$color-grey;
-            margin-top: 10px;
+.list{
+    width: 100%;
+    &__item{
+        width: 100%;
+        padding: 10px 20px;
+        border: solid 1px g.$color-grey;
+        border-radius: 6px;
+        p{
+            @include g.font-style(16px, g.$color-black, 700, 1.5, 0);
         }
     }
-    &__title{
-        @include g.font-style(20px, g.$color-white, 700, 1, 0);
-        padding: 4px 16px;
-        background-color: g.$color-blue2;
-        border-radius: 0 14px 0 0;
-        display: inline-block;
-        @include g.pc{
-            padding: 0.4rem 1.6rem;
-            border-radius: 0 1.4rem 0 0;
-        }
-        @include g.sp{
-            font-size: 2rem;
-        }
-    }
-    &__text{
-        @include g.font-style(16px, g.$color-black, 700, 1.5, 0);
-        margin-top: 5px;
-        @include g.sp{
-            font-size: 1.6rem;
-        }
+    &__control{
+        gap: 2rem;
     }
 }

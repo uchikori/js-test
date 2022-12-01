@@ -4,11 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
-    <title>モダンJS</title>
+    <title>TODOリスト</title>
     <link rel="stylesheet" href="dist/css/style.css">
 </head>
 <body>
-    <p class="text-box">テストです</p>
+    <header class="header">
+        <h1 class="title">タスク管理</h1>
+    </header>
+    <main class="main">
+        <section class="box main__regist container  mt-120">
+            <div class="title__second">タスクの登録</div>
+            <div class="box__inner flex column align-end mt-10">
+                <input type="text" placeholder="タスクを入力してください">
+                <button class="btn_grad_orange mt-20">追加</button>
+            </div>
+        </section>
+        <section class="box main__list container mt-40">
+            <div class="title__second">タスク一覧</div>
+            <div class="box__inner mt-10">
+                <ul class="list">
+                    <li class="list__item flex justify-spaceBetween">
+                        <p>TODOタスク</p>
+                        <div class="list__control flex">
+                            <button class="btn_grad_orange">完了</button>
+                            <button class="btn_color_grey">削除</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="box main__complete container mt-40">
+            <div class="title__second">完了したタスク</div>
+            <div class="box__inner mt-10">
+                <ul class="list">
+                    <li class="list__item flex justify-spaceBetween">
+                        <p>TODOタスク</p>
+                        <div class="list__control flex">
+                            <button class="btn_color_grey">元に戻す</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
     <!-- <script src="src/js/practice.js"></script> -->
     <script src="src/js/vanilla.js"></script>
 </body>

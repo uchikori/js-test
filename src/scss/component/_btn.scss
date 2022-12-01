@@ -1,163 +1,30 @@
 @use '../global' as g;
 .btn{
-    &__icon{
-        width: 50px;
-        height: 50px;
-        aspect-Ratio: 1/1;
-        display: inline-block;
-        position: absolute;
-        top: 50%;
-        left: 8px;
-        transform: translateY(-50%);
-        @include g.pc{
-            width: 5rem;
-            height: 5rem;
-            left: 0.8rem;
-        }
-        img{
-            height: auto;
-        }
-    }
-    &_color_orange{
-        width: 316px;
-        height: 66px;
-        border-radius: 100vh;
-        background-color: g.$color-orange;
-        position: relative;
-        margin: 20px;
-        filter: brightness(100%);
-        transition: filter 0.3s ease;
-        @include g.pc{
-            width: 31.6rem;
-            height: 6.6rem;
-            margin: 2rem;
-        }
-        &:hover{
-            filter: brightness(110%);
-            transition: filter 0.3s ease;
-        }
-        .header &{
-            display: none;
-            @include g.tab{
-                display: block;
-            }
-        }
-        a{
-            width: 100%;
-            height: 100%;
-            @include g.font-style(18px, g.$color-white, 700, 1, 0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            @include g.pc{
-                font-size: 1.8rem;
-            }
-        }
-    }
-    &_small_orange{
-        width: 228px;
-        height: 40px;
-        border-radius: 100vh;
-        background-color: g.$color-orange;
-        position: relative;
-        margin: 20px;
-        filter: brightness(100%);
-        transition: filter 0.3s ease;
-        display: inline-block;
-        @include g.pc{
-            width: 22.8rem;
-            height: 4rem;
-            margin: 2rem;
-        }
-        &:hover{
-            filter: brightness(110%);
-            transition: filter 0.3s ease;
-        }
-        a{
-            width: 100%;
-            height: 100%;
-            @include g.font-style(20px, g.$color-white, 700, 1, 0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            @include g.pc{
-                font-size: 2rem;
-            }
-        }
-    }
     &_grad_orange{
-        padding: 5px 10px;
+        padding: 5px 20px;
         border-radius: 100vh;
         background: linear-gradient(to Bottom, #FF8855, #FF611E);
         position: relative;
         filter: brightness(100%);
         transition: filter 0.3s ease;
         display: inline-block;
-        @include g.small{
-            padding: 10px 20px;
-        }
+        @include g.font-style(16px, g.$color-white, 700, 1, 0);
         &:hover{
             filter: brightness(110%);
             transition: filter 0.3s ease;
         }
-        a{
-            width: 100%;
-            height: 100%;
-            @include g.font-style(14px, g.$color-white, 700, 1, 0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            @include g.pc{
-                font-size: 1.4rem;
-            }
-        }
     }
-    &_clear{
-        width: 334px;
-        height: 66px;
+    &_color_grey{
+        padding: 5px 20px;
         border-radius: 100vh;
-        background-color: g.$color-white;
-        border: solid 2px g.$color-blue2;
+        background-color: g.$color-grey;
         position: relative;
-        transition: background-color 0.3s ease;
-        @include g.pc{
-            width: 33.4rem;
-            height: 6.6rem;
-        }
-        .footer &{
-            width: 370px;
-            @include g.pc{
-                width: 37rem;
-            }
-        }
-        .timetable &{
-            width: 231px;
-            height: 50px;
-            margin: 10px;
-            
-        }
+        transition: filter 0.3s ease;
+        display: inline-block;
+        @include g.font-style(16px, g.$color-white, 700, 1, 0);
         &:hover{
-            background-color: g.$color-blue2;
+            background-color: g.$color-dark;
             transition: background-color 0.3s ease;
-        }
-        a{
-            width: 100%;
-            height: 100%;
-            @include g.font-style(18px, g.$color-blue2, 700, 1, 0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: color 0.3s ease;
-            @include g.pc{
-                font-size: 1.8rem;
-            }
-            &:hover{
-                color: g.$color-white;
-                transition: color 0.3s ease;
-            }
-            .timetable &{
-                font-size: 16px;
-            }
         }
     }
 }
