@@ -20,14 +20,16 @@ var onClickAdd = function onClickAdd() {
     var deleteTarget = completeBtn.closest('li');
     deleteFromIncompleteList(deleteTarget); //2:完了したリストのテキスト内容を取得
 
-    var completeFromTask = completeBtn.closest('li');
-    var task = completeFromTask.firstElementChild.innerText; //3:li以下を削除
-    // completeFromTask.textContent = null;
+    var toCompleteFromTask = completeBtn.closest('li');
+    var task = toCompleteFromTask.firstElementChild.innerText; //3:li以下を削除
+    // toCompleteFromTask.textContent = null;
 
-    completeFromTask.removeChild(btnWrap); //3の状態に「元に戻すボタン」を追加する
+    toCompleteFromTask.removeChild(btnWrap); //4:3の状態に「元に戻すボタン」を追加する
 
-    completeFromTask.appendChild(backBtn);
-    console.log(completeFromTask);
+    toCompleteFromTask.appendChild(backBtn); //5:4の状態のliタグを完了エリアのul配下に設置
+
+    var completeList = document.getElementById('completeList');
+    completeList.appendChild(toCompleteFromTask);
   }); //button(削除)タグ生成
 
   var deleteBtn = document.createElement('button');
@@ -41,7 +43,22 @@ var onClickAdd = function onClickAdd() {
 
   var backBtn = document.createElement('button');
   backBtn.className = 'btn_color_grey mt-10';
-  backBtn.innerText = '元に戻す'; //buttonラップ要素の生成
+  backBtn.innerText = '元に戻す';
+  backBtn.addEventListener('click', function () {
+    //1:親要素のliタグごと削除
+    var deleteTarget = backBtn.closest('li');
+    document.getElementById('completeList').removeChild(deleteTarget); //2:元に戻すリストli要素を取得
+
+    var toTaskFromComplete = backBtn.closest('li');
+    var task = toTaskFromComplete.firstElementChild.innerText; //3:li以下を削除
+    // toTaskFromComplete.textContent = null;
+
+    toTaskFromComplete.removeChild(backBtn); //4:3の状態に「buttonラップ要素」を追加する
+
+    toTaskFromComplete.appendChild(btnWrap); //5:4の状態のliタグを完了エリアのul配下に設置
+
+    document.getElementById('taskList').appendChild(toTaskFromComplete);
+  }); //buttonラップ要素の生成
 
   var btnWrap = document.createElement('div');
   btnWrap.className = 'list__control flex mt-10';
