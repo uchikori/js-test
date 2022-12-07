@@ -1,0 +1,13 @@
+{
+  "name": "coding",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/uchikori/js-test.git",
+  "license": "MIT",
+  "scripts": {
+    "build": "sass src/scss/style.scss:./src/scss/style.css"
+  },
+  "dependencies": {
+    "sass": "^1.56.1"
+  }
+}
